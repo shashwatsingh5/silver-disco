@@ -1,0 +1,32 @@
+const http=require('http');
+const myserver=http.createServer((req,res)=>{
+     if (req.url === '/') {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(`
+      <h1>ABES ENGINEERING COLLEGE</h1>
+      <img src="/images/college.png" width="300"/>
+    `);
+  }
+
+  else if (req.url === '/about') {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(`
+      <h1>About Us</h1>
+      <p>We are students of CSE DS B</p>
+      <img src="/images/college.png" width="200"/>
+    `);
+  }
+
+  else if (req.url === '/contactus') {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(`
+      <h1>Contact Us</h1>
+      <p>ORDERLY BAZAR VARANASI</p>
+    `);
+  }                                                                                                                                                                                                                                                                                                   
+    else {
+        res.end('404 this page is not found')
+    }
+   
+})
+myserver.listen(8000,()=>console.log('server is run'));
